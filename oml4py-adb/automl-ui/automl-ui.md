@@ -331,7 +331,6 @@ To view the generated notebook Customer 360:
 	![Generated Notebook](images/model-quality-metric.png " ")
 
 This completes the task of creating a notebook based on a model and viewing the paragraphs contained in it.
-
 </if>
 
 <!-- For livelabs -->
