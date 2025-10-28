@@ -37,7 +37,7 @@ This lab assumes you have:
 
 ## Task 1: Access Oracle Machine Learning AutoML UI
 
-To access AutoML UI, you must sign into the Oracle Machine Learning User Interface, which also includes Oracle Machine Learning notebooks, on Autonomous Database:
+To access AutoML UI, you must sign into the Oracle Machine Learning User Interface, which also includes Oracle Machine Learning notebooks, on Autonomous AI Database:
 
 1. Sign into Oracle Machine Learning user interface (following Lab1, Task 1 instructions).
 
@@ -120,7 +120,7 @@ To create an Experiment:
 
    ![Additional Settings](images/additional-settings-algo.png " ")
 
- > **Note:** Changing the database service level setting on the Always Free Tier will have no effect since there is no parallelism on the compute.  However, in a **Paid Autonomous Database**, if you increase the compute allocated for OML, you can increase the Database Service Level to Medium or High to get parallelism.
+ > **Note:** Changing the database service level setting on the Always Free Tier will have no effect since there is no parallelism on the compute.  However, in a **Paid Autonomous AI Database**, if you increase the compute allocated for OML, you can increase the Database Service Level to Medium or High to get parallelism.
 
 This completes the task of creating an experiment.
 
@@ -405,7 +405,7 @@ To create an Experiment:
 
    ![Additional Settings](images/additional-settings-algo.png " ")
 
- > **Note:** Changing the database service level setting on the Always Free Tier will have no effect since there is no parallelism on the compute.  However, in a **Paid Autonomous Database**, if you increase the compute allocated for OML, you can increase the Database Service Level to Medium or High to get parallelism.
+ > **Note:** Changing the database service level setting on the Always Free Tier will have no effect since there is no parallelism on the compute.  However, in a **Paid Autonomous AI Database**, if you increase the compute allocated for OML, you can increase the Database Service Level to Medium or High to get parallelism.
 
 This completes the task of creating an experiment.
 
@@ -694,7 +694,7 @@ To create an Experiment:
 
    ![Additional Settings](images/additional-settings-algo.png " ")
 
- > **Note:** Changing the database service level setting on the Always Free Tier will have no effect since there is no parallelism on the compute.  However, in a **Paid Autonomous Database**, if you increase the compute allocated for OML, you can increase the Database Service Level to Medium or High to get parallelism.
+ > **Note:** Changing the database service level setting on the Always Free Tier will have no effect since there is no parallelism on the compute.  However, in a **Paid Autonomous AI Database**, if you increase the compute allocated for OML, you can increase the Database Service Level to Medium or High to get parallelism.
 
 This completes the task of creating an experiment.
 
@@ -980,7 +980,7 @@ To create an Experiment:
 
    ![Additional Settings](images/additional-settings-algo.png " ")
 
- > **Note:** Changing the database service level setting on the Always Free Tier will have no effect since there is no parallelism on the compute.  However, in a **Paid Autonomous Database**, if you increase the compute allocated for OML, you can increase the Database Service Level to Medium or High to get parallelism.
+ > **Note:** Changing the database service level setting on the Always Free Tier will have no effect since there is no parallelism on the compute.  However, in a **Paid Autonomous AI Database**, if you increase the compute allocated for OML, you can increase the Database Service Level to Medium or High to get parallelism.
 
 This completes the task of creating an experiment.
 

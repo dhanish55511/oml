@@ -7,10 +7,10 @@ This lab shows how to use the transparency layer classes to work with data and t
 Estimated Time: 30 minutes
 
 ### About data selection and manipulation
-The transparency layer classes allow you to convert select Python objects to Oracle Autonomous Database objects. It allows users to call a range of familiar Python functions that are overloaded to invoke the corresponding SQL on tables in the
+The transparency layer classes allow you to convert select Python objects to Oracle Autonomous AI Database objects. It allows users to call a range of familiar Python functions that are overloaded to invoke the corresponding SQL on tables in the
 database.
 The Oracle Machine Learning for Python (OML4Py) transparency layer supports functions that interact with database data and enables you to:
-* Load Python `pandas.DataFrame` objects to Oracle Database to create database tables
+* Load Python `pandas.DataFrame` objects to Oracle AI Database to create database tables
 * Access and manipulate database tables and views through the use of proxy objects
 * Overload Python functions, translating their functionality into SQL
 * Leverage proxy objects for database data
