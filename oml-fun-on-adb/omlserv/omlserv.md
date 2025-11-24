@@ -72,7 +72,7 @@ This lab assumes you have:
     * Your OML password
     * `oml-cloud-service-location-url`
 
-   Here is the syntax:
+   Here is the syntax: 
 
      ```
      <copy>
@@ -650,6 +650,6 @@ For each summary, an associated weight is also returned.
 
 ## Acknowledgements
 
-* **Author** - Suresh Rajan, Senior Manager, Oracle Database User Assistance Development; Moitreyee Hazarika, Principal UAD, Database User Assistance Development
+* **Author** - Suresh Rajan, Senior Manager, Oracle AI Database User Assistance Development; Moitreyee Hazarika, Principal UAD, Database User Assistance Development
 * **Contributors** -  Mark Hornick, Senior Director, Data Science and Oracle Machine Learning Product Management; Sherry LaMonica, Consulting Member of Technical Staff, Oracle Machine Learning; Marcos Arancibia Coddou, Senior Principal Product Manager, Machine Learning
-* **Last Updated By/Date** - Moitreyee Hazarika, June 2025
+* **Last Updated By/Date** - Moitreyee Hazarika, November 2025
