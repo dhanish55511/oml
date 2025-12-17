@@ -774,6 +774,6 @@ OML4R Embedded R Execution provides users the ability to call user-defined R fun
 OREdplyr package functions implement the `dplyr` interface for use with `ore.frame` and `ore.numeric` objects.
 
 ## Acknowledgements
-* **Author** - Dhanish Kumar, Member of Technical Staff, User Assistance Developer.
+* **Author** - Sadhana Ashokkumar, Member of Technical Staff, Oracle AI Database User Assistance Development
 * **Contributors** -  Mark Hornick, Senior Director, Data Science and Machine Learning; Suresh Rajan, Senior Manager, Oracle Database User Assistance Development; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning.
-* **Last Updated By/Date** - Sadhana Ashokkumar, October 2025
+* **Last Updated By/Date** - Sadhana Ashokkumar, November 2025
