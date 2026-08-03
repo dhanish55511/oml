@@ -1,0 +1,1 @@
+This image shows the Oracle Autonomous AI Database console. It has the Cloud Shell open at the bottom. 

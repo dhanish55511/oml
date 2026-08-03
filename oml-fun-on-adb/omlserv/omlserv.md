@@ -59,20 +59,20 @@ This lab assumes you have:
 
 ## Task 1: Authenticate Your User Account with Your Autonomous AI Database Instance to Use OML Services
 
-1.  This lab uses OCI Cloud Shell. To access the OCI Cloud Shell, select your compartment and click on the Cloud Shell icon.
+1. This lab uses OCI Cloud Shell. To access the OCI Cloud Shell, select your compartment and click on the Cloud Shell icon.
 
-	 ![Autonomous AI Database instance](images/oci-cloud-shell-1-new1.png)
+    	 ![Autonomous AI Database instance](images/oci-cloud-shell-1-new1.png)
 
-   On clicking the Cloud Shell icon, the OCI Cloud Shell command prompt is displayed in the lower half of the console as illustrated in the image below.
+    On clicking the Cloud Shell icon, the OCI Cloud Shell command prompt is displayed in the lower half of the console as illustrated in the image below.
 
-  ![OCI Cloud Shell command prompt](images/oci-cloud-shell-2-new2.png)
+    ![OCI Cloud Shell command prompt](images/oci-cloud-shell-2-new2.png)
 
 2. To access Oracle Machine Learning Services using the REST API, you must acquire an access token. To authenticate and obtain an access token, use cURL with the ``-d`` option to pass the user name and password for your Oracle Machine Learning Services account against the Oracle Machine Learning User Management Cloud Service token service. Use the following details to get an authentication token.
     * Your OML user name
     * Your OML password
     * `oml-cloud-service-location-url`
 
-   Here is the syntax: 
+    Here is the syntax: 
 
      ```
      <copy>
@@ -82,7 +82,7 @@ This lab assumes you have:
      </copy>
      ```
 
-   In the syntax above, `oml-cloud-service-location-url` is the Autonomous AI Database URL and points to the region where the Autonomous AI Database instance resides. The URL also contains the database name and tenancy ID.  
+    In the syntax above, `oml-cloud-service-location-url` is the Autonomous AI Database URL and points to the region where the Autonomous AI Database instance resides. The URL also contains the database name and tenancy ID.  
    
 ### Task 1.1: Get the `oml-cloud-service-location-url` to Obtain Your REST Authentication Token
 
@@ -90,15 +90,15 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
 
 1. On your Oracle ADB instance details page, click **Database actions**  and then click **View all database actions.**
 
-   ![Database Actions](images/dbactions-view-all-dbactions.png)
+    ![Database Actions](images/dbactions-view-all-dbactions.png)
       
 2. The Database Actions Launchpad opens in a different tab. Here, go to **Related Services** tab and then click **Oracle Machine Learning RESTful services**. The Oracle Machine Learning RESTful Services dialog opens.  
 
-   ![Related Services tab](images/omls-related-services.png)
+    ![Related Services tab](images/omls-related-services.png)
 
 3. On the Oracle Machine Learning RESTful Services dialog, copy the URL for your ADB instance. Paste the URL to a text editor, such as Notepad. From the URL, remove the ``/omlusers/`` segment.
 
-   ![Oracle Machine Learning RESTful services](images/omls-url.png)
+    ![Oracle Machine Learning RESTful services](images/omls-url.png)
 
 4. Now, go back to the Cloud Shell interface and run a command to obtain a token. First set variables for the parameters for ease of use in subsequent requests.
 
@@ -114,7 +114,7 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
     * AAbbcc123456 is your OML password.
     * `oml-cloud-service-location-url` is the URL that you copied from the ADB console, without the /omlusers/ segment in it.
 
-  An example of `oml-cloud-service-location-url` is https://aabbcc123456xyz-omllabs.adb.us-ashburn-1.oraclecloudapps.com. In this URL:
+    An example of `oml-cloud-service-location-url` is https://aabbcc123456xyz-omllabs.adb.us-ashburn-1.oraclecloudapps.com. In this URL:
     * `aabbcc123456xyz` is the tenancy ID (not to be confused with the very long tenancy OCID)
     * `omllabs` is the database name, and
     * `adb.us-ashburn-1.oraclecloudapps.com` is the region name.
@@ -140,7 +140,7 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
 
 7. A token is valid for an hour. You can refresh a token for up to 8 hours after generating it. Each refresh will extend its validity by an hour.
 
-   Here's the command for refreshing a token:
+    Here's the command for refreshing a token:
 
     ```
     <copy>export token=$(curl -i -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header "Authorization: Bearer ${token}" -d '{"grant_type":"refresh_token", "refresh_token":"'${token}'"}' "${omlservice}/omlusers/api/oauth2/v1/token" | grep -o -P '(?<="accessToken":").*(?=","expiresIn)' )</copy>
@@ -193,14 +193,14 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
 
     ```
 
-   Run the curl command to view the APIs.
+    Run the curl command to view the APIs.
 
     ```
     <copy>curl -i -X GET --header "Authorization: Bearer ${token}" "${omlservice}/omlmod/v1/api" | head -n 50</copy>
 
     ```
 
-   Here's the result, in a truncated form, of running the command above:
+    Here's the result, in a truncated form, of running the command above:
 
     ```
        "lifecycle": {
@@ -232,14 +232,14 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
        ...
 
     ```
-2.  Get a list of saved models. For this step to return results, you need to have models deployed in your OML user account. If you have completed Lab 5, your account should include deployed models. Refer back to Lab 5 Using OML AutoML UI  to know how to quickly create and save a model.
+2. Get a list of saved models. For this step to return results, you need to have models deployed in your OML user account. If you have completed Lab 5, your account should include deployed models. Refer back to Lab 5 Using OML AutoML UI  to know how to quickly create and save a model.
 
     ```
     <copy>curl -X GET --header "Authorization: Bearer ${token}" "${omlservice}/omlmod/v1/models" | jq</copy>
 
     ```
 
-   The result of running the command above is displayed below:
+    The result of running the command above is displayed below:
 
     ```
     {
@@ -278,7 +278,7 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
 
     ```
 
-   Running the command above displays the model details for the model `NaiveBayes_CUST360` as displayed below:
+    Running the command above displays the model details for the model `NaiveBayes_CUST360` as displayed below:
 
     ```
     {
@@ -310,7 +310,7 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
 
     ```
 
-4.  Next, get a list of models filtered by version=1.0 and namespace=`DEMO`.
+4. Next, get a list of models filtered by version=1.0 and namespace=`DEMO`.
 
     > **Note**: The namespace parameter is case-sensitive.
 
@@ -446,7 +446,7 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
     * A valid authentication token
     * Input record to score
 
-   Here's the syntax:
+    Here's the syntax:
 
     ```
     <copy>
@@ -457,14 +457,14 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
     </copy>
     ```
 
-  In the syntax above, the parameter `topNdetails` is optional. It fetches the top n prediction details for the record you are scoring. Prediction details refer to the attributes or features that impact a prediction. In the following example,  you specify the model URI `nb_cust360` and a valid token generated in Task 1. The model was built using the Supplementary Demographics data set. To score with a single record, for XXX use `YRS_RESIDENCE` with the value of 10 and for YYY  use `Y_BOX_GAMES` with a value of 0. You want to predict the probability that the person associated with this record will purchase the affinity card.
+    In the syntax above, the parameter `topNdetails` is optional. It fetches the top n prediction details for the record you are scoring. Prediction details refer to the attributes or features that impact a prediction. In the following example,  you specify the model URI `nb_cust360` and a valid token generated in Task 1. The model was built using the Supplementary Demographics data set. To score with a single record, for XXX use `YRS_RESIDENCE` with the value of 10 and for YYY  use `Y_BOX_GAMES` with a value of 0. You want to predict the probability that the person associated with this record will purchase the affinity card.
 
     ```
-   <copy>curl -X POST "${omlservice}/omlmod/v1/deployment/nb_cust360/score"  --header "Authorization: Bearer ${token}" --header 'Content-Type: application/json'  -d '{"inputRecords":[{"YRS_RESIDENCE":10,"Y_BOX_GAMES":0}]}' | jq</copy>
+    <copy>curl -X POST "${omlservice}/omlmod/v1/deployment/nb_cust360/score"  --header "Authorization: Bearer ${token}" --header 'Content-Type: application/json'  -d '{"inputRecords":[{"YRS_RESIDENCE":10,"Y_BOX_GAMES":0}]}' | jq</copy>
 
     ```
 
-   Here's the score for the data above. It indicates the probability value for each label.
+    Here's the score for the data above. It indicates the probability value for each label.
 
     ```
     {
@@ -486,7 +486,7 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
 
     ```
 
-2.  Next, score a mini-batch of 2 records with the same model URI. For the first record, use the same data as in the singleton scoring step above. For the second record and the prediction details parameter, use the data shown below. You want to return the top 3 attributes that impact the predictions and, therefore, set `topNdetails` to 3.:
+2. Next, score a mini-batch of 2 records with the same model URI. For the first record, use the same data as in the singleton scoring step above. For the second record and the prediction details parameter, use the data shown below. You want to return the top 3 attributes that impact the predictions and, therefore, set `topNdetails` to 3.:
     * `YRS_RESIDENCE`=5
     * `Y_BOX_GAMES`=1
     * `topNdetails` = 3
@@ -573,19 +573,19 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
 
     ```
 
-   In the syntax above,
+    In the syntax above,
 
     * topN is an optional parameter, which determines the number of most relevant keywords to return. If you don't specify this parameter, by default 5 keywords are returned.
     * textList is a required parameter to pass the text string to be scored.
 
-   Run the following command to obtain the top 2 most relevant keywords in the provided text string.
+    Run the following command to obtain the top 2 most relevant keywords in the provided text string.
 
     ```
     <copy>curl -X POST "${omlservice}/omlmod/v1/cognitive-text/keywords" --header 'Content-Type: application/json' --header "Authorization: Bearer ${token}" --data '{"topN":2,"textList":["With Oracle Machine Learning, Oracle moves the algorithms to the data. Oracle runs machine learning within the database, where the data reside. This approach minimizes or eliminates data movement, achieves scalability, preserves data security, and accelerates time-to-model deployment. Oracle delivers parallelized in-database implementations of machine learning algorithms and integration with the leading open source environments R and Python. Oracle Machine Learning delivers the performance, scalability, and automation required by enterprise-scale data science projects - both on-premises and in the Cloud."]}' | jq</copy>
 
     ```
 
-   Here's the result of running the command above. Notice that the result includes a weight for each keyword returned.
+    Here's the result of running the command above. Notice that the result includes a weight for each keyword returned.
 
     ```
     [

@@ -1,0 +1,1 @@
+This image shows the Oracle Machine Learning RESTful Services dialog. It has the URL for obtaining the REST Authentication token for OML provided REST APIs.  

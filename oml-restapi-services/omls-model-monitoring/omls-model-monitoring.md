@@ -51,24 +51,31 @@ To monitor your models:
 
 2. Now, obtain the modelId of the model that you want to monitor. To get the `modelId`, send a `GET` request to the deployment endpoint and specify the model `URI`. 
 
-  _Example of a `GET` Request to obtain the `modelId`:_
+    _Example of a `GET` Request to obtain the `modelId`:_
   
 
     ```
     <copy>
-    $ curl -X GET "<oml-cloud-service-location-url>/omlmod/v1/deployment/HousePowerNN" \
+    $ curl -X GET "${omlservice}/omlmod/v1/deployment/<URI>" \
         --header "Authorization: Bearer ${token}" | jq '.modelId'
     </copy>
     ```
 
-    In this example, the model URI is `HousePowerNN`
+    In this example, the model URI is `NN`
 
-  _Sample Response:_
+    ![Model ID from Deployment tab](images/mm-modelid.png)
+
+    _Sample Response:_
 
     The GET request returns the following:
     ```
-    "modelId": "0bf13d1f-86a6-465d-93d1-8985afd1bbdb"
+    "modelId": "c6259091-97d1-4f62-bc01-425d23a4aca8"
     ```
+    Alternatively, you can obtain the modelID from the Deployments tab. See screenshot here.
+
+    ![Model ID from Deployment tab](images/mm-modelid-ui.png)
+
+
 
 
 3. After obtaining the access token and the `modelId`, you can now create a model monitoring job by sending a POST request to the deployment endpoint and by specifying the model URI. 
@@ -79,40 +86,40 @@ To monitor your models:
 
     ```
     <copy>
-      $ curl -X POST "<oml-cloud-service-location-url>/omlmod/v1/jobs" \
-          --header "Authorization: Bearer ${token}" \
-          --header 'Content-Type: application/json' \
-          --data '{
-              "jobSchedule": {
-              "jobStartDate": "2023-03-25T00:30:07Z",                  
-              "repeatInterval": "FREQ=DAILY",                         
-              "jobEndDate": "2023-03-30T20:50:06Z",                    
-              "maxRuns": "5"                                          
-          },
-          "jobProperties": {
-              "jobName": "MY_MODEL_MONITOR1",                         
-              "jobType": "MODEL_MONITORING",                          
-              "disableJob": false,                                    
-              "jobServiceLevel": "LOW",                                
-              "inputSchemaName": "OMLUSER",                           
-              "outputSchemaName": "OMLUSER",                          
-              "outputData": "Global_Active_Power_Monitor",            
-              "jobDescription": "Global active power monitoring job", 
-              "baselineData": "HOUSEHOLD_POWER_BASE",                 
-              "newData": "HOUSEHOLD_POWER_NEW",                       
-              "frequency": "Year",                                    
-              "threshold": 0.15,                                      
-              "timeColumn": "DATES",                                  
-              "startDate": "2008-01-01T00:00:00Z",                    
-              "endDate": "2010-11-26T00:00:00Z",                      
-              "caseidColumn": null,                                   
-              "performanceMetric": "MEAN_SQUARED_ERROR",              
-              "modelList": [                                          
-                  "0bf13d1f-86a6-465d-93d1-8985afd1bbdb"
-              ],
-              "recompute": false                                      
-          }
-      }' | jq
+      $ curl -X POST "${omlservice}/omlmod/v1/jobs" \
+      --header "Authorization: Bearer ${token}" \
+      --header 'Content-Type: application/json' \
+      --data '{
+          "jobSchedule": {
+          "jobStartDate": "2026-04-22T00:30:07Z",                  
+          "repeatInterval": "FREQ=HOURLY",                         
+          "jobEndDate": "2026-04-30T20:50:06Z",                    
+          "maxRuns": "5"                                          
+      },
+      "jobProperties": {
+          "jobName": "MY_MODEL_MONITOR2",                         
+          "jobType": "MODEL_MONITORING",                          
+          "disableJob": false,                                    
+          "jobServiceLevel": "LOW",                                
+          "inputSchemaName": "OMLUSER",                           
+          "outputSchemaName": "OMLUSER",                          
+          "outputData": "Global_Active_Power_Monitor",            
+          "jobDescription": "Global active power monitoring job", 
+          "baselineData": "HOUSEHOLD_POWER_BASE",                 
+          "newData": "HOUSEHOLD_POWER_NEW",                       
+          "frequency": "DAY",                                    
+          "threshold": 0.15,                                      
+          "timeColumn": "DATES",                                  
+          "startDate": "2007-12-21T00:00:00Z",                    
+          "endDate": "2007-12-31T00:00:00Z",                      
+          "caseidColumn": null,                                   
+          "performanceMetric": "MEAN_SQUARED_ERROR",              
+          "modelList": [                                          
+              "c6259091-97d1-4f62-bc01-425d23a4aca8"
+          ],
+          "recompute": false                                      
+      }
+    }' | jq
     </copy>
     ```
 
@@ -169,20 +176,22 @@ The optional parameters are:
   * `inputSchemaName`: The database schema that owns the input table or view. If not specified, the input schema will be the same as the username in the request token.
     * `jobServiceLevel`: The service level for the job, which can be LOW, MEDIUM, or HIGH.
 
+  ![Model Monitoring Job ID](images/mm-job-id.png)
+
 This completes the task of creating and running a model monitoring job. 
 
 ## Task 2: View Details of the Submitted Job
 
 1. To view the details of your submitted job, send a `GET` request to the `/omlmod/v1/jobs/{jobId}` endpoint. Here, `jobId` is the ID provided in response to the successful submission of your model monitoring job. 
 
-  _Example of a GET request to view details of a submitted job:_
+    _Example of a GET request to view details of a submitted job:_
     
 
     ```
     <copy>
-    $ export jobid='OML$736F509B_FC1A_400A_AC75_553F1D6C5D97'   # define the Job ID as a single-quoted variable 
+    $ export jobid='OML$D65A2211_DC3A_4EDC_9AF2_46FF59757FDE'    
 
-    $ curl -X GET "<oml-cloud-service-location-url>/omlmod/v1/jobs/${jobid}"  \
+    $ curl -X GET "${omlservice}/omlmod/v1/jobs/${jobid}"  \
         --header 'Accept: application/json' \
         --header 'Content-Type: application/json' \
         --header "Authorization: Bearer ${token}" | jq
@@ -190,74 +199,87 @@ This completes the task of creating and running a model monitoring job.
 
     ```
   
-  _Sample Response of the GET request:_
+    _Sample Response of the GET request:_
   
-  Here is a sample output of the job details request. The `jobStatus` `CREATED` indicates that the job has been created. If your job has already run once, you will see information returned about the last job run.
+    Here is a sample output of the job details request. The `jobStatus` `CREATED` indicates that the job has been created. If your job has already run once, you will see information returned about the last job run.
  
-
     ```
     <copy>
     returns:
 
-  {
-    "jobId": "OML$736F509B_FC1A_400A_AC75_553F1D6C5D97",
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+    100  1142  100  1142    0     0    849      0  0:00:01  0:00:01 --:--:--   849
+    {
+    "jobId": "OML$D65A2211_DC3A_4EDC_9AF2_46FF59757FDE",
     "jobRequest": {
-      "jobSchedule": {
-        "jobStartDate": "2024-11-11T00:30:07Z",
-        "repeatInterval": "FREQ=DAILY",
-        "jobEndDate": "2024-11-19T00:30:07Z",
-        "maxRuns": 5
-      },
-      "jobProperties": {
-        "jobType": "MODEL_MONITORING",
-        "inputSchemaName": "OMLUSER",
-        "outputSchemaName": "OMLUSER",
-        "outputData": "Global_Active_Power_Monitor",
-        "jobDescription": "Global active power monitoring job",
-        "jobName": "MY_MODEL_MONITOR1",
-        "disableJob": false,
-        "jobServiceLevel": "LOW",
-        "baselineData": "HOUSEHOLD_POWER_BASE",
-        "newData": "HOUSEHOLD_POWER_NEW",
-        "timeColumn": "DATES",
-        "startDate": "2008-01-01T00:00:00Z",
-        "endDate": "2010-11-26T00:00:00Z",
-        "frequency": "Year",
-        "threshold": 0.15,
-        "recompute": false,
-        "caseidColumn": null,
-        "modelList": [
-          "0bf13d1f-86a6-465d-93d1-8985afd1bbdb"
-        ],
-        "performanceMetric": "MEAN_SQUARED_ERROR"
-      }
+    "jobSchedule": {
+      "jobStartDate": "2026-04-22T00:30:07Z",
+      "repeatInterval": "FREQ=HOURLY",
+      "jobEndDate": "2026-04-30T20:50:06Z",
+      "maxRuns": 5
+    },
+    "jobProperties": {
+      "jobType": "MODEL_MONITORING",
+      "inputSchemaName": "OMLUSER",
+      "outputSchemaName": "OMLUSER",
+      "outputData": "Global_Active_Power_Monitor",
+      "jobDescription": "Global active power monitoring job",
+      "jobName": "MY_MODEL_MONITOR2",
+      "disableJob": false,
+      "jobServiceLevel": "LOW",
+      "baselineData": "HOUSEHOLD_POWER_BASE",
+      "newData": "HOUSEHOLD_POWER_NEW",
+      "timeColumn": "DATES",
+      "startDate": "2007-12-21T00:00:00Z",
+      "endDate": "2007-12-31T00:00:00Z",
+      "frequency": "DAY",
+      "threshold": 0.15,
+      "recompute": false,
+      "caseidColumn": null,
+      "modelList": [
+        "c6259091-97d1-4f62-bc01-425d23a4aca8"
+      ],
+      "performanceMetric": "MEAN_SQUARED_ERROR"
+    }
     },
     "jobStatus": "CREATED",
-    "dateSubmitted": "2024-11-11T00:26:16.127906Z",
+    "dateSubmitted": "2026-04-22T12:25:34.29732Z",
     "links": [
-      {
-        "rel": "self",
-        "href": "<OML Service URL>/omlmod/v1/jobs/OML%24736F509B_FC1A_400A_AC75_553F1D6C5D97"
-      }
+    {
+      "rel": "self",
+      "href": "https://g703dcfbfc5ff90-omllabs199471.adb.ap-hyderabad-1.oraclecloudapps.com/omlmod/v1/jobs/OML%24D65A2211_DC3A_4EDC_9AF2_46FF59757FDE"
+    }
     ],
     "jobFlags": [],
     "state": "SCHEDULED",
     "enabled": true,
-    "runCount": 0,
-    "nextRunDate": "2024-11-11T00:30:07Z"
-  }
+    "nextRunDate": "2026-04-22T12:30:07.413217Z",
+    "runCount": 0
+    }
 
     </copy>
     ```
 
+    ![Model Monitoring Job details](images/mm-job-details1.png)
+  
+
+2. Run this job after an hour. In Task 1 of this lab, we defined the `repeatInterval` of the model monitoring job to `HOURLY`. Hence, run this job after an hour to check the `jobRunStatus`.
+
+    >**Note:** Note the parameters `runCount` and `jobRunStatus`. The `runCount` is `2` and the status shows `SUCCEEDED`.
+
+ 
+  ![Model Monitoring Job details](images/mm-job-details4.png)
+
+
 ## Task 3: Query the Output Table to view the Model Monitoring Details  
-Once your job has run, either according to its schedule or by the RUN action, you can view its output in the table you specified in your job request with the `outputData` parameter. The full name of the table is in the format `{jobId}_{outputData}`.
+Once your job has run successfully, either according to its schedule or by the RUN action, you can view its output in the table you specified in your job request with the `outputData` parameter. The full name of the table is in the format `{jobId}_{outputData}`.
 
 To query the output table: 
 
 1. Check if your job is complete by sending a request to view its details. If your job has run at least once you should see the `lastRunDetail` parameter with information on that run.
 
-2. Run the SQL command to query the model monitoring output table. Here is the syntax:
+2. In a `%sql` paragraph in a notebook, run the following SQL command to query the model monitoring output table. Here is the syntax:
 
     ```
     %sql
@@ -272,16 +294,24 @@ To query the output table:
     ```
     <copy>
     %sql
-
-
     SELECT IS_BASELINE, MODEL_ID, round(METRIC, 4), HAS_DRIFT, round(DRIFT, 4), MODEL_TYPE, 
-        THRESHOLD, MODEL_METRICS 
-    FROM OML$736F509B_FC1A_400A_AC75_553F1D6C5D97_Global_Active_Power_Monitor
-
+    THRESHOLD, MODEL_METRICS 
+    FROM OML$D65A2211_DC3A_4EDC_9AF2_46FF59757FDE_Global_Active_Power_Monitor
+    
     </copy>
     ```
-  The query returns a table with the columns `IS_BASELINE`, `MODEL_ID`, `ROUND (METRIC, 4)`, `HAS_DRIFT`, `ROUND (DRIFT, 4)`, `MODEL_TYPE`, `THRESHOLD`, and `MODEL_METRICS`. Note that the first row of results is the `baseline` time period. As drift is not calculated on data in the `baseline` time period, that is why the columns `HAS_DRIFT` , `ROUND (DRIFT, 4)`, and `THRESHOLD` are empty for this row. 
+  The query returns a table with the columns `IS_BASELINE`, `MODEL_ID`, `ROUND (METRIC, 4)`, `HAS_DRIFT`, `ROUND (DRIFT, 4)`, `MODEL_TYPE`, `THRESHOLD`, and `MODEL_METRICS`.
+  
+    >**Note:** The first row of results is the `baseline` time period. As drift is not calculated on data in the `baseline` time period, that is why the columns `HAS_DRIFT` , `ROUND (DRIFT, 4)`, and `THRESHOLD` are empty for this row. 
 
+  Here is a screenshot of the output table:
+    ![Model Monitoring Output table](images/mm-output-table-01.png)
+
+  Scroll to the right to view the model metrics, as shown in the screenshot here.
+
+    ![Model Monitoring Output table](images/mm-output-table-02.png)
+
+  This completes the task of creating and running a model monitoring job. 
 
 ## Learn More
 
@@ -293,4 +323,4 @@ To query the output table:
 
 * **Author** : Moitreyee Hazarika, Consulting User Assistance Developer, Database User Assistance Development
 * **Contributors**: Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning
-* **Last Updated By/Date**: Moitreyee Hazarika, October 2025
+* **Last Updated By/Date**: Moitreyee Hazarika, June 2026

@@ -1,6 +1,9 @@
 # Use the Scratchpad in Oracle Machine Learning User Interface
 ## Introduction
 
+Estimated Time: TODO - x minutes
+
+
 This lab shows you how to use the Scratchpad in Oracle Machine Learning UI.
 ### About the Scratchpad in Oracle Machine Learning UI
 
@@ -38,10 +41,10 @@ To run python script:
 
 1. Go to the paragraph with the <code>%python</code> directive.
 
-   ![Screenshot shows the Scratchpad with py directive](images/scratchpad-py.png "Scratchpad with py directive")
+    ![Screenshot shows the Scratchpad with py directive](images/scratchpad-py.png "Scratchpad with py directive")
 
 2. To use OML4Py, you must first import the `oml` module.
-   `oml` is the OML4Py module that allows you to manipulate Oracle Database objects such as tables and views, call user-defined Python functions using embedded execution, and use the database machine learning algorithms. To import the `oml` module, type the following command and click the Run icon. Alternatively, you can press **Shift+Enter** keys to run the paragraph.
+    `oml` is the OML4Py module that allows you to manipulate Oracle Database objects such as tables and views, call user-defined Python functions using embedded execution, and use the database machine learning algorithms. To import the `oml` module, type the following command and click the Run icon. Alternatively, you can press **Shift+Enter** keys to run the paragraph.
 
 
     ```
@@ -51,7 +54,7 @@ To run python script:
     ```
 
 3. To check if the <code>oml</code> module is connected to Oracle Database,
-   type the following command and click the <b>Run</b>icon. Alternatively, you can press **Shift+Enter** keys to run the paragraph.
+    type the following command and click the <b>Run</b>icon. Alternatively, you can press **Shift+Enter** keys to run the paragraph.
 
     ```
     <copy>
@@ -60,7 +63,7 @@ To run python script:
     ```
 
 4. You are now ready to run your Python script. Type the following Python code and click the run
-   icon. Alternatively, you can press **Shift+Enter** keys to run the paragraph.
+    icon. Alternatively, you can press **Shift+Enter** keys to run the paragraph.
 
     ```
     <copy>
@@ -96,31 +99,31 @@ To run R functions in an Oracle Machine Learning notebook, you must first connec
 
 1. To connect to the R interpreter, type the following directive at the beginning of the notebook paragraph, and press Enter:
 
-  ```
-  <copy>
-  %r
-  </copy>
-  ```
+    ```
+    <copy>
+    %r
+    </copy>
+    ```
 
 2. To verify the database connection, type the following command and press Enter:
 
-  ```
-  <copy>
-  ore.isconnected()
-  </copy>
-  ```
+    ```
+    <copy>
+    ore.isconnected()
+    </copy>
+    ```
 
-  ![Screenshot shows the ore.isconnected command](images/ore-connected.png "ore.isconnected command")
+    ![Screenshot shows the ore.isconnected command](images/ore-connected.png "ore.isconnected command")
 
-  Once your notebook is connected, the command returns TRUE, as shown in the screenshot here. The notebook is now connected to the R interpreter, and you are ready to run R commands in your notebook.
+    Once your notebook is connected, the command returns TRUE, as shown in the screenshot here. The notebook is now connected to the R interpreter, and you are ready to run R commands in your notebook.
 3. To import R Libraries, run the following commands:
 
-  ```
-  <copy>
-  library(ORE)
-  library(OREdplyr)
-  </copy>
-  ```
+    ```
+    <copy>
+    library(ORE)
+    library(OREdplyr)
+    </copy>
+    ```
 
   ![Screenshot shows the Command to load r packages](images/load-r-packages.png "Command to load r packages")
 
@@ -132,7 +135,7 @@ To run SQL statements:
 
 1. Go to the paragraph with the `%sql` directive.
 
-   ![Screenshot shows the SQL directive in Scratchpad](images/scratchpad-sql.png "SQL directive in Scratchpad")
+    ![Screenshot shows the SQL directive in Scratchpad](images/scratchpad-sql.png "SQL directive in Scratchpad")
 
 2. Type the following command and click the Run icon. Alternatively, you can pres **Shift+Enter** keys to run the paragraph.
 
@@ -152,7 +155,7 @@ To run PL/SQL scripts:
 
 1. Go to the paragraph with the `%script` directive.
 
-   ![Screenshot shows the PL/SQL script in Scratchpad](images/scratchpad-script.png "PL/SQL script in Scratchpad")
+    ![Screenshot shows the PL/SQL script in Scratchpad](images/scratchpad-script.png "PL/SQL script in Scratchpad")
 
 2. Enter the following PL/SQL script and click the **Run** icon. Alternatively, you can press **Shift+Enter** keys to run the paragraph.
 
@@ -187,4 +190,4 @@ To run PL/SQL scripts:
 ## Acknowledgements
 * **Author** : Moitreyee Hazarika, Consulting User Assistance Developer, Database User Assistance Development
 * **Contributors**: Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning
-* **Last Updated By/Date**: Moitreyee Hazarika, October 2025
+* **Last Updated By/Date**: Moitreyee Hazarika, June 2026

@@ -2,7 +2,7 @@
 
 ## About this Workshop
 
-In this workshop, you will explore the REST APIs for Oracle Machine Learning (OML) Services. The REST API for OML Services provides REST API endpoints hosted on Oracle Autonomous AI Database. Using the REST APIs, you will learn how to deploy an ONNX format model, perform scoring, create and run a data monitoring and model monitoring job to deploy a model, and run a data bias detection job. 
+In this workshop, you will explore the REST APIs for Oracle Machine Learning (OML) Services. The REST API for OML Services provides REST API endpoints hosted on Oracle Autonomous AI Database. Using the REST APIs, you will learn how to deploy an ONNX format model, perform scoring, create and run a data monitoring job to monitor your data, and create and run a model monitoring job to monitor the quality of model predictions over time.
 
 Estimated Workshop Time: 2 hours
 
@@ -14,8 +14,7 @@ In this workshop, you will learn how to:
     * Obtain an authentication token to use OML Services via REST endpoints
     * Deploy an ONNX format models and perform scoring
     * Create and Run a Data Monitoring Job Using OML Services REST API
-    * Create and Run a Model Monitoring Job Using OML Services REST API
-    * Create and Run a Data Bias Detection Job Using OML Services REST API
+    * Create and Run a Model Monitoring Job Using OML Services REST API    
 
 
 
@@ -30,4 +29,4 @@ This workshop assumes you have:
 
 * **Author** : Moitreyee Hazarika, Consulting User Assistance Developer, Database User Assistance Development
 * **Contributors**: Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning
-* **Last Updated By/Date**: Moitreyee Hazarika, October 2025
+* **Last Updated By/Date**: Moitreyee Hazarika, June 2026

@@ -45,66 +45,66 @@ This task demonstrates how to create a Conda environment called `mypyenv` for Py
 To create a Conda environment:
 
 1. Run the following command to list the environments that are available by default. Conda contains default environments with some core system libraries and conda dependencies. The active environment is marked with an asterisk (*). Run the following command to list the available environments.
-	```
-	<copy>
-	%conda
+    	```
+    	<copy>
+    	%conda
 
-	env list
-	</copy>
-	```
+    	env list
+    	</copy>
+    	```
 
 
-	The command returns the list of following environments:
-	![Command to list env](images/env-list.png)
+    	The command returns the list of following environments:
+    	![Command to list env](images/env-list.png)
 
 2. Now, run the following command to create an environment by the name `mypyenv` from the conda forge channel and also install the Python packages _tensorflow_ and _seaborn_:
 
-	>*Note:* In this example, we are using the _conda-forge_ channel to install the Python packages.
+    	>*Note:* In this example, we are using the _conda-forge_ channel to install the Python packages.
 
-	```
-	<copy>
-	%conda
+    	```
+    	<copy>
+    	%conda
 
-	create -n mypyenv -c conda-forge --override-channels --strict-channel-priority python=3.10 tensorflow seaborn
+    	create -n mypyenv -c conda-forge --override-channels --strict-channel-priority python=3.10 tensorflow seaborn
 
-	</copy>
-	```
-	In this command:
-	* ``-n`` : This is the name of the environment. In this example, it is _mypyenv_.
-	* ``-c`` : This is the channel name. In this example, it is _conda-forge_
-	* ``--override-channels`` : This argument ensures that the system does not search default, and requires a channel to be mentioned.
-	* ``--strict-channel-priority`` : This argument ensures that packages in lower priority channels are not considered if a package with the same name appears in a higher priority channel. In this example, the priority is given to python 3.10, tensorflow, and seaborn
+    	</copy>
+    	```
+    	In this command:
+    	* ``-n`` : This is the name of the environment. In this example, it is _mypyenv_.
+    	* ``-c`` : This is the channel name. In this example, it is _conda-forge_
+    	* ``--override-channels`` : This argument ensures that the system does not search default, and requires a channel to be mentioned.
+    	* ``--strict-channel-priority`` : This argument ensures that packages in lower priority channels are not considered if a package with the same name appears in a higher priority channel. In this example, the priority is given to python 3.10, tensorflow, and seaborn
 
 
 
-	The command returns the following message once it creates the environment and installs the listed package. Scroll down the paragraph to view the complete details.
+    	The command returns the following message once it creates the environment and installs the listed package. Scroll down the paragraph to view the complete details.
 
-	![Command to create mypyenv and install Py packages ](images/cmd-mypyenv-pkge.png)
+    	![Command to create mypyenv and install Py packages ](images/cmd-mypyenv-pkge.png)
 
 3. Now, verify the environment that you created. Run the following command once again to view the list of environments. Note that the _mypyenv_ environment is listed in the output.
 
-	```
-	<copy>
+    	```
+    	<copy>
 
-	%conda
+    	%conda
 
-	env list
-	</copy>
-	```
+    	env list
+    	</copy>
+    	```
 
-	![Command to list env and shows mypyenv](images/env-list-mypyenv.png)
+    	![Command to list env and shows mypyenv](images/env-list-mypyenv.png)
 
-	>*Note:* The _mypyenv_ environment is not yet active. The active environment is marked with an asterisk (*), and in this list, it is present against the base environment usr.
+    	>*Note:* The _mypyenv_ environment is not yet active. The active environment is marked with an asterisk (*), and in this list, it is present against the base environment usr.
 
 4. Now, run the following command to activate the environment _mypyenv_.
-	```
-	<copy>
-	%conda
+    	```
+    	<copy>
+    	%conda
 
-	activate mypyenv
-	</copy>
-	```
-	![Command to activate mypyenv](images/activate-mypyenv.png)
+    	activate mypyenv
+    	</copy>
+    	```
+    	![Command to activate mypyenv](images/activate-mypyenv.png)
 
 
 5. Now, run the command to list the environment once again to view the list of active environments. Note that the asterisk (*) is now present against the _mypyenv_ environment.  
@@ -125,26 +125,26 @@ To create a Conda environment named _myrenv_ with R-4.0.5 for OML4R compatibilit
 
 1. Run the following command to create the environment for R by the name _myrenv_ and also install the packages _forecast_ and _ggplot2_:
 
-	>*Note:* In this example, we are using the _conda-forge_ channel to install the R packages.
+    	>*Note:* In this example, we are using the _conda-forge_ channel to install the R packages.
 
-	```
-	<copy>
-	%conda
+    	```
+    	<copy>
+    	%conda
 
-	create -n myrenv -c conda-forge --override-channels --strict-channel-priority r-base=4 r-forecast r-ggplot2
-	</copy>
-	```
-	In this command:
-	* ``-n`` : This is the name of the environment. In this example, it is _myrenv_.
-	* ``-c`` : This is the channel name. In this example, it is _conda-forge_
-	* ``--override-channels`` : This argument ensures that the system does not search default, and requires a channel to be mentioned.
-	* ``--strict-channel-priority`` : This argument ensures that packages in lower priority channels are not considered if a package with the same name appears in a higher priority channel. In this example, the priority is given to R-4.0.5, forecast, and ggplot2.
+    	create -n myrenv -c conda-forge --override-channels --strict-channel-priority r-base=4 r-forecast r-ggplot2
+    	</copy>
+    	```
+    	In this command:
+    	* ``-n`` : This is the name of the environment. In this example, it is _myrenv_.
+    	* ``-c`` : This is the channel name. In this example, it is _conda-forge_
+    	* ``--override-channels`` : This argument ensures that the system does not search default, and requires a channel to be mentioned.
+    	* ``--strict-channel-priority`` : This argument ensures that packages in lower priority channels are not considered if a package with the same name appears in a higher priority channel. In this example, the priority is given to R-4.0.5, forecast, and ggplot2.
 
 
-	The command returns the following:
+    	The command returns the following:
 
-	![Command to create R conda environment and package myrenv](images/cmd-myrenv-pkge.png)
-	>*Note:* In this example, we are using the _conda-forge_ channel to install the R packages.
+    	![Command to create R conda environment and package myrenv](images/cmd-myrenv-pkge.png)
+    	>*Note:* In this example, we are using the _conda-forge_ channel to install the R packages.
 
 2. Now let's verify the Conda environment for R that you just created. Run the following command in a %conda paragraph to view the list of environments.
 
@@ -166,40 +166,40 @@ The application tag is required for use with embedded execution. For example, OM
 To get help for the upload command, type upload --help in the %conda interpreter.
 
 1. Run the following command to upload the mypyenv to the Object Storage bucket associated with the ADB.
-	```
-	<copy>
-	upload mypyenv --overwrite --description 'Install Python seaborn and tensorflow packages' -t user 'OMLUSER' -t application OML4PY
-	</copy>
-	```
-	![Command to upload the Py environment mypyenv and Py packages the to object storage](images/cmd-load-mypyenv.png)
+    	```
+    	<copy>
+    	upload mypyenv --overwrite --description 'Install Python seaborn and tensorflow packages' -t user 'OMLUSER' -t application OML4PY
+    	</copy>
+    	```
+    	![Command to upload the Py environment mypyenv and Py packages the to object storage](images/cmd-load-mypyenv.png)
 
-	In this command, you use the `upload` command and provide the following:
-	* ``--description:`` a description of your task.
-	*	``-t :`` A tag for the user 'OMLUSER' and for the application 'OML4PY'
+    	In this command, you use the `upload` command and provide the following:
+    	* ``--description:`` a description of your task.
+    	*	``-t :`` A tag for the user 'OMLUSER' and for the application 'OML4PY'
 
 2. Now, run the following command to view the list of saved environments in mypyenv:
 
-	```
-	<copy>
-	list-saved-envs -e mypyenv
-	</copy>
-	```
+    	```
+    	<copy>
+    	list-saved-envs -e mypyenv
+    	</copy>
+    	```
 
-	The command returns the following:
+    	The command returns the following:
 
-	![Command to list the saved environments](images/list-saved-env1.png)
+    	![Command to list the saved environments](images/list-saved-env1.png)
 
 3. Now upload the myrenv to the object storage by running the following command in a Conda paragraph:
 
-	```
-	<copy>
-	%conda
+    	```
+    	<copy>
+    	%conda
 
-	upload myrenv --overwrite --description 'Install R forecast and ggplot2 packages' -t user 'OMLUSER' -t application 'OML4R
-	</copy>
-	```
-	The command returns the following:
-	![Command to upload the R environment myRenv and R packages the to object storage](images/cmd-load-myrenv.png)
+    	upload myrenv --overwrite --description 'Install R forecast and ggplot2 packages' -t user 'OMLUSER' -t application 'OML4R
+    	</copy>
+    	```
+    	The command returns the following:
+    	![Command to upload the R environment myRenv and R packages the to object storage](images/cmd-load-myrenv.png)
 
 4. Again, run the following command to view the list of saved environments in myrenv:
 
@@ -223,54 +223,54 @@ The steps in task 4 must be performed as the non-ADMIN OML user with the `OML_DE
 
 1. Run the following command in a %conda paragraph to download and activate the Python conda environment _mypyenv_:  
 
-	```
-	<copy>
-	%conda
+    	```
+    	<copy>
+    	%conda
 
-	download mypyenv
+    	download mypyenv
 
-	activate mypyenv
-	</copy>
-	```
+    	activate mypyenv
+    	</copy>
+    	```
 
 
-	![Command to download and activate the Python Conda environment mypyenv](images/cmd-dwnld-actve-mypyenv.png)
+    	![Command to download and activate the Python Conda environment mypyenv](images/cmd-dwnld-actve-mypyenv.png)
 
 2. Run the following command in a ``%python`` paragraph to import the python libraries.
 
-	```
-	<copy>
-	%python
+    	```
+    	<copy>
+    	%python
 
-	import keras
-	from keras.models import Sequential
-	from keras.layers import Dense
-	from tensorflow.keras.optimizers import Adam
+    	import keras
+    	from keras.models import Sequential
+    	from keras.layers import Dense
+    	from tensorflow.keras.optimizers import Adam
 
-	import seaborn as sns
-	import pandas as pd
-	import numpy as np
+    	import seaborn as sns
+    	import pandas as pd
+    	import numpy as np
 
-	from sklearn.metrics import classification_report, confusion_matrix
+    	from sklearn.metrics import classification_report, confusion_matrix
 
-	</copy>
-	```
-	![Command to import Py libraries](images/cmd-import-py-lib.png)
+    	</copy>
+    	```
+    	![Command to import Py libraries](images/cmd-import-py-lib.png)
 
-	Once the command runs successfully, the libraries are ready for use.
+    	Once the command runs successfully, the libraries are ready for use.
 
 3. In another %python paragraph, run the following command to load the iris data:
 
-	```
-	<copy>
-	%python
+    	```
+    	<copy>
+    	%python
 
-	df = sns.load_dataset("iris")
+    	df = sns.load_dataset("iris")
 
-	z.show(df)
-	</copy>
-	```
-	![Command to load data](images/cmd-load-data.png)
+    	z.show(df)
+    	</copy>
+    	```
+    	![Command to load data](images/cmd-load-data.png)
 
 
 4. Plot the relationship pairwise
@@ -295,34 +295,34 @@ The steps in task 5 must be performed as the non-ADMIN OML user with the `OML_DE
 
 1. Run the following in a %conda paragraph to download and activate the R environment for Conda _myrenv_:
 
-	```
-	<copy>
-	%conda
+    	```
+    	<copy>
+    	%conda
 
-	download myrenv
+    	download myrenv
 
-	activate myrenv
-	</copy>
-	```
+    	activate myrenv
+    	</copy>
+    	```
 
-	![Command to download and activate the R Conda environment](images/cmd-dwnld-actve-myrenv.png)
-	Scroll down the paragraph to check the activation status, as shown here:
+    	![Command to download and activate the R Conda environment](images/cmd-dwnld-actve-myrenv.png)
+    	Scroll down the paragraph to check the activation status, as shown here:
 
-	![View downloaded and activated R Conda environment](images/view-dwnld-actve-myrenv.png)
+    	![View downloaded and activated R Conda environment](images/view-dwnld-actve-myrenv.png)
 
 
 2. Run the following command in a ``%conda`` paragraph to list the packages available in the R environment:
-	```
-	<copy>
-	%conda
+    	```
+    	<copy>
+    	%conda
 
-	list
-	</copy>
-	```
-	![View the list of R Conda packages](images/list-r-pkge1.png)
+    	list
+    	</copy>
+    	```
+    	![View the list of R Conda packages](images/list-r-pkge1.png)
 
-	Scroll down to check the R packages ggplot2 and forecast. These packages are listed, as shown in the screenshot here:
-	![View the list of R Conda packages](images/list-r-pkge2.png)
+    	Scroll down to check the R packages ggplot2 and forecast. These packages are listed, as shown in the screenshot here:
+    	![View the list of R Conda packages](images/list-r-pkge2.png)
 3. Run the following to load the R libraries and suppress warnings in an %r paragraph.  The libraries are now ready for use.
 	```
 	<copy>

@@ -35,7 +35,7 @@ This lab assumes you have:
 
 4. Click the play button at the top to run all paragraphs of the notebook.
 
-  ![Run all paragraphs](images/timeseries-run-all-paragraphs.png)
+    ![Run all paragraphs](images/timeseries-run-all-paragraphs.png)
 
 
 5. Click **Confirm** in the confirmation dialog to run all the paragraphs.
@@ -76,7 +76,7 @@ The following steps help you to create a view and view the data:
 
      ```
 
-  The output is as follows:
+    The output is as follows:
 
     ```
     View ESM_SH_DATA created.
@@ -204,7 +204,7 @@ Evaluate your model by viewing diagnostic metrics and performing quality checks.
     ORDER BY SETTING_NAME;
     </copy>
     ```
-	![Review model settings](images/timeseries-modelsettings.png)
+    	![Review model settings](images/timeseries-modelsettings.png)
 
 2. To view the model diagnostic view, `DM$VG`, and evaluate the model, run the following query:
 
@@ -253,14 +253,14 @@ For a time series model, you use the `DM$VP` view to retrieve the forecasts for 
     </copy>
     ```
 
-	![The image displays the forecast using the DM$VP model detail view](images/timeseries-forecast.png)
-	In this step, the forecast shows the amount sold along with the `case_id`. The forecasts display upper and lower confidence bounds showing that the estimates can vary between those values.
+    	![The image displays the forecast using the DM$VP model detail view](images/timeseries-forecast.png)
+    	In this step, the forecast shows the amount sold along with the `case_id`. The forecasts display upper and lower confidence bounds showing that the estimates can vary between those values.
 
-	Examine the statement:
-	- `TO_CHAR(CASE_ID,'YYYY-MON') DATE_ID`: The `DATE_ID` column has timestamp or `case_id` extracted in year-month (yyyy-mon) format.
-	- `round(VALUE,2) ACTUAL_SOLD`: Specifies the `AMOUNT_SOLD` value as `ACTUAL_SOLD` rounded to two decimal places.
-	- `round(PREDICTION,2) FORECAST_SOLD`: Specifies the predicted value as `FORECAST_SOLD` rounded to two decimal places.
-	- `round(LOWER,2) LOWER_BOUND, round(UPPER,2) UPPER_BOUND`: Specifies the lower and upper confidence levels rounded to two decimal places.
+    	Examine the statement:
+    	- `TO_CHAR(CASE_ID,'YYYY-MON') DATE_ID`: The `DATE_ID` column has timestamp or `case_id` extracted in year-month (yyyy-mon) format.
+    	- `round(VALUE,2) ACTUAL_SOLD`: Specifies the `AMOUNT_SOLD` value as `ACTUAL_SOLD` rounded to two decimal places.
+    	- `round(PREDICTION,2) FORECAST_SOLD`: Specifies the predicted value as `FORECAST_SOLD` rounded to two decimal places.
+    	- `round(LOWER,2) LOWER_BOUND, round(UPPER,2) UPPER_BOUND`: Specifies the lower and upper confidence levels rounded to two decimal places.
 
 2. To see a visual representation of the predictions in OML Notebooks, run the same query above without ```DESC``` in the ```ORDER BY``` clause. Click the Line Chart graph and apply the following settings:
 Click on the **Settings** icon ![settings icon](images/settings-icon.png). In the settings dialog, click on **Series to Show** and click `FORECASTED_SOLD`, `ACTUAL_SOLD`, `LOWER_BOUND`, and `UPPER_BOUND`. In the **Group_by** field, select `DATE_ID`. In the **Aggregate Duplicates** field, click on the drop down menu and select `Average`. Click on the close icon X to exit the dialog.   

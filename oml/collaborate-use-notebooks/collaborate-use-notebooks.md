@@ -1,6 +1,9 @@
 # Collaborate in Oracle Machine Learning User Interface
 ## Introduction
 
+Estimated Time: TODO - x minutes
+
+
 This lab shows you how to two or more users can collaborate and share SQL notebooks with other Oracle Machine Learning Notebooks users.
 
 ### About Collaboration in Oracle Machine Learning User Interface
@@ -62,7 +65,7 @@ This use case demonstrates how:
 
     ![permissions.png](images/permissions.png "permissions")
 
-5.  In the Workspace Permissions dialog, select **OMLUSER2** from the Username drop-down list, and select **Developer** from the Permission Type field to grant DEVELOPER permission to `OMLUSER2`. Then click **+** to add permission to this user.
+5. In the Workspace Permissions dialog, select **OMLUSER2** from the Username drop-down list, and select **Developer** from the Permission Type field to grant DEVELOPER permission to `OMLUSER2`. Then click **+** to add permission to this user.
     ![add-permissions.png](images/add-permissions.png "add permissions")
 
 6. Once you have added the permission, the user along with the permission type is listed on the dialog. Click **OK.**
@@ -95,9 +98,9 @@ The message _Permissions have been updated successfully_ is displayed.
     ![user2-select-project.png](images/user2-select-project.png "user2 select project")
 
 3. In the Select Projects dialog, click the Workspace drop-down. Here, you can see two workspaces - **OMLUSER Workspace** and **USER2 Workspace** (default workspace for `OMLUSER2`). Select **OMLUSER Workspace**. 
-![omluser2-accesses-omluser-workspace.png](images/omluser2-accesses-omluser-workspace.png "user1 accesses user2 project")
+    ![omluser2-accesses-omluser-workspace.png](images/omluser2-accesses-omluser-workspace.png "user1 accesses user2 project")
 
-The projects under OMLUSER Workspace are listed. To access the notebooks under OMLUSER Workspace, select **OMLUSER Project** , and click **OK**.
+    The projects under OMLUSER Workspace are listed. To access the notebooks under OMLUSER Workspace, select **OMLUSER Project** , and click **OK**.
     ![omluser2-accesses-omluser-projects.png](images/omluser2-accesses-omluser-projects.png "user1 accesses user2 project")
 
 4. After clicking **OK**, note the change in the name of the project-workspace drop-down list at the top. The project-workspace drop-down list name changes to **OMLUSER Project [OMLUSER Workspace...** , while you are logged in as `OMLUSER2`. This indicates that `OMLUSER2` is currently accessing the **OMLUSER Project** under **OMLUSER Workspace** while signed in as `OMLUSER2`.
@@ -245,4 +248,4 @@ You may now **proceed to the next lab.**
 ## Acknowledgements
 * **Author** : Moitreyee Hazarika, Consulting User Assistance Developer, Database User Assistance Development
 * **Contributors**: Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning
-* **Last Updated By/Date**: Moitreyee Hazarika, October 2025
+* **Last Updated By/Date**: Moitreyee Hazarika, June 2026

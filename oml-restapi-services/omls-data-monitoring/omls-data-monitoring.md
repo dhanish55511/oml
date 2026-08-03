@@ -62,7 +62,7 @@ To create a data monitoring job:
 
   ```
       <copy>
-      $ curl -X POST "<oml-cloud-service-location-url>/omlmod/v1/jobs" \
+      $ curl -X POST "${omlservice}/omlmod/v1/jobs" \
         --header "Authorization: Bearer ${token}" \
         --header 'Content-Type: application/json' \
         --data '{
@@ -154,15 +154,17 @@ _Sample Response:_
 
   ```
      {
-       "jobId": "OML$7ABB6308_1664_4CB4_84B1_598A6EA599D1",
+       "jobId": "OML$4ADF964D_3231_46B0_850B_09A47399355E",
        "links": [
        {
          "rel": "self",
-             "href": "<OML Service URL>/omlmod/v1/jobs/OML%247ABB6308_1664_4CB4_84B1_598A6EA599D1"
+             "href": "<OML Service URL>/omlmod/v1/jobs/OML%244ADF964D_3231_46B0_850B_09A47399355E"
        }
      ]
      }
    ```
+
+   ![Job ID of a data monitoring job](images/dm-job-id.png)
 
 This completes the task of creating and running a data monitoring job. 
 
@@ -177,7 +179,7 @@ This completes the task of creating and running a data monitoring job.
     <copy>
     $ export jobid='OML$7ABB6308_1664_4CB4_84B1_598A6EA599D1'  
 
-    $ curl -X GET "<oml-cloud-service-location-url>/omlmod/v1/jobs/${jobid}"  \
+    $ curl -X GET "${omlservice}/omlmod/v1/jobs/${jobid}"  \
          --header 'Accept: application/json' \
          --header 'Content-Type: application/json' \
          --header "Authorization: Bearer ${token}" | jq
@@ -245,6 +247,7 @@ This completes the task of creating and running a data monitoring job.
 
     </copy>
     ```
+  ![Job status](images/dm-job-status.png)
 
 
 ## Task 3: Query the Output Table to view the Data Monitoring Details 
@@ -277,6 +280,8 @@ Once your job has run, either according to its schedule or by the RUN action, yo
 
     </copy>
     ```
+    ![Output table](images/dm-output-table.png)
+  
   After you run the query, scroll down the output table to view if there is information for the `baseline` time period and `newdata` time period for each of the dataset features being monitored for drift. Many of the columns may be empty in the baseline rows, as the data monitoring is done on the new data, not the baseline data. 
 
 This completes the task of creating and running a data monitoring job. You may now **proceed to the next lab.**
@@ -286,10 +291,10 @@ This completes the task of creating and running a data monitoring job. You may n
 * [REST API for Oracle Machine Learning Services](https://docs.oracle.com/en/database/oracle/machine-learning/omlss/omlss/index.html)
 * [Work with Data Monitoring](https://docs.oracle.com/en/database/oracle/machine-learning/omlss/omlss/omls-data-monitoring.html)
 
-
+You may now **proceed to the next lab.**
 
 ## Acknowledgements
 
 * **Author** : Moitreyee Hazarika, Consulting User Assistance Developer, Database User Assistance Development
 * **Contributors**: Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning
-* **Last Updated By/Date**: Moitreyee Hazarika, October 2025
+* **Last Updated By/Date**: Moitreyee Hazarika, June 2026

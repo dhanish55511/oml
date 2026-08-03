@@ -32,13 +32,13 @@ This lab assumes you have:
 
 ## Task 1: Authenticate Your User Account with Your Autonomous AI Database Instance to Use OML Services
 
-1.  This lab uses OCI Cloud Shell. To access the OCI Cloud Shell, select your compartment and click on the Cloud Shell icon.
+1. This lab uses OCI Cloud Shell. To access the OCI Cloud Shell, select your compartment and click on the Cloud Shell icon.
 
-	 ![Autonomous AI Database instance](images/oci-cloud-shell-1-new1.png)
+    	 ![Autonomous AI Database instance](images/oci-cloud-shell-1-new1.png)
 
-   On clicking the Cloud Shell icon, the OCI Cloud Shell command prompt is displayed in the lower half of the console as illustrated in the image below.
+    On clicking the Cloud Shell icon, the OCI Cloud Shell command prompt is displayed in the lower half of the console as illustrated in the image below.
 
-  ![OCI Cloud Shell command prompt](images/oci-cloud-shell-2-new2.png)
+    ![OCI Cloud Shell command prompt](images/oci-cloud-shell-2-new2.png)
 
 2. To access Oracle Machine Learning Services using the REST API, you must acquire an access token. To authenticate and obtain an access token, use cURL with the ``-d`` option to pass the user name and password for your Oracle Machine Learning Services account against the Oracle Machine Learning User Management Cloud Service token service. Use the following details to get an authentication token.
     * Your OML user name
@@ -65,15 +65,15 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
 
 1. On your Oracle ADB instance details page, click **Database actions**  and then click **View all database actions.**
 
-   ![Database Actions](images/dbactions-view-all-dbactions.png)
+    ![Database Actions](images/dbactions-view-all-dbactions.png)
       
 2. The Database Actions Launchpad opens in a different tab. Here, go to **Related Services** tab and then click **Oracle Machine Learning RESTful services**. The Oracle Machine Learning RESTful Services dialog opens.  
 
-   ![Related Services tab](images/omls-related-services.png)
+    ![Related Services tab](images/omls-related-services.png)
 
 3. On the Oracle Machine Learning RESTful Services dialog, copy the URL for your ADB instance. Paste the URL to a text editor, such as Notepad. From the URL, remove the ``/omlusers/`` segment.
 
-   ![Oracle Machine Learning RESTful services](images/omls-url.png)
+    ![Oracle Machine Learning RESTful services](images/omls-url.png)
 
 4. Now, go back to the Cloud Shell interface and run a command to obtain a token. First set variables for the parameters for ease of use in subsequent requests.
 
@@ -89,7 +89,7 @@ You can obtain this URL information from **Oracle Machine Learning RESTful servi
     * AAbbcc123456 is your OML password.
     * `oml-cloud-service-location-url` is the URL that you copied from the ADB console, without the /omlusers/ segment in it.
 
-  An example of `oml-cloud-service-location-url` is https://aabbcc123456xyz-omllabs.adb.us-ashburn-1.oraclecloudapps.com. In this URL:
+    An example of `oml-cloud-service-location-url` is https://aabbcc123456xyz-omllabs.adb.us-ashburn-1.oraclecloudapps.com. In this URL:
     * `aabbcc123456xyz` is the tenancy ID (not to be confused with the very long tenancy OCID)
     * `omllabs` is the database name, and
     * `adb.us-ashburn-1.oraclecloudapps.com` is the region name.
@@ -170,10 +170,10 @@ You can also revoke a token. You cannot use or refresh a token you have revoked.
 
 * [REST API for Oracle Machine Learning Services](https://docs.oracle.com/en/database/oracle/machine-learning/omlss/omlss/index.html)
 
-
+You may now **proceed to the next lab.**
 
 ## Acknowledgements
 
 * **Author** : Moitreyee Hazarika, Consulting User Assistance Developer, Database User Assistance Development
 * **Contributors**: Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning
-* **Last Updated By/Date**: Moitreyee Hazarika, October 2025
+* **Last Updated By/Date**: Moitreyee Hazarika, June 2026

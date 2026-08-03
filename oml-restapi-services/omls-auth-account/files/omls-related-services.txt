@@ -1,0 +1,1 @@
+This image shows Database Actions Launchpad page. It has Oracle Machine Learning RESTFul Services highlighted under Related Services. 

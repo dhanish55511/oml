@@ -1,6 +1,9 @@
 # Create and Run Notebooks in Oracle Machine Learning
 ## Introduction
 
+Estimated Time: TODO - x minutes
+
+
 This lab shows you how to create a notebook and run it in Oracle Machine Learning Notebooks.
 
 Oracle Machine Learning Notebooks is a web-based interface for data analysis, data discovery, and data visualization. Whenever a notebook is created, it must be defined with a specific interpreter binding specifications. The notebook contains an internal list of bindings that determines the order of the interpreter bindings.
@@ -28,17 +31,22 @@ This lab takes approximately 10 minutes to complete.
 
 
 
+### Objectives
+
+In this lab, you will:
+* TODO: Add objectives
+
 ## Task 1: Create Your Notebook
 
 To create a notebook:
 
 1. Sign in to your Oracle Machine Learning Notebooks account and click **Notebooks** on the home page.
 
-   ![OML homepage](images/oml-homepage.png "OML homepage")
+    ![OML homepage](images/oml-homepage.png "OML homepage")
 
 2. On the Notebooks page, click **Create**. The Create Notebook dialog box opens.
 
-   ![Create Notebook dialog](images/create-notebook.png "Create Notebook dialog")
+    ![Create Notebook dialog](images/create-notebook.png "Create Notebook dialog")
 
 3. In the **Name** field, provide a name for the notebook.
 
@@ -132,14 +140,14 @@ This topic shows how to start working in the Conda environment:
 
 4. Here's an example that demonstrates how to use the seaborn library package for visualization. Seaborn is a Python visualization library based on matplotlib. It provides a high-level interface for drawing attractive statistical graphics. This example
 
-* Imports Pandas and seaborn
-* Loads the Iris dataset
-* Plots the datapoints, that is, the three different species of the Iris flower - Setosa, Virginica, and Versicolor based on its dimensions. It creates a scatter plot
+    * Imports Pandas and seaborn
+    * Loads the Iris dataset
+    * Plots the datapoints, that is, the three different species of the Iris flower - Setosa, Virginica, and Versicolor based on its dimensions. It creates a scatter plot
 
-Type:
+    Type:
 
-  ```
-  <copy>
+    ```
+    <copy>
     %python
 
     def sb_plot():
@@ -150,9 +158,9 @@ Type:
         sb.set_style("ticks")
         sb.pairplot(df,hue = 'species',diag_kind = "kde",kind = "scatter",palette = "husl")
         plt.show()
-  </copy>      
-  ```
-  ![Seaborn commands](images/seaborn-commands.png "Seaborn commands")
+    </copy>      
+    ```
+    ![Seaborn commands](images/seaborn-commands.png "Seaborn commands")
 
 5. To run the function in a Python paragraph, type:
 
@@ -190,9 +198,9 @@ An Oracle Machine Learning notebook supports multiple languages. For this, you m
     ore.is.connected()
     </copy>
     ```
-  ![ore connected command](images/ore-connected.png "ore connected command")  
+    ![ore connected command](images/ore-connected.png "ore connected command")  
 
-  Once your notebook is connected, the command returns TRUE, as shown in the screenshot here. The notebook is now connected to the R interpreter, and you are ready to run R commands in your notebook.
+    Once your notebook is connected, the command returns TRUE, as shown in the screenshot here. The notebook is now connected to the R interpreter, and you are ready to run R commands in your notebook.
 
 3. To import R Libraries, run the following commands:
 
@@ -218,7 +226,7 @@ This example assumes that you have a notebook called Py Note notebook created. T
 
 2. You must specify the Python interpreter to execute Python scripts in notebooks. Type %python and press enter. This specification, indicates that the paragraph should be executed by the Python interpreter.
 
-   ![py connect interpreter](images/py-connect-interpreter.png "py connect interpreter")
+    ![py connect interpreter](images/py-connect-interpreter.png "py connect interpreter")
 
 3. To use OML4Py, you must first import the `oml` module. `oml` is the OML4Py module that allows you to manipulate Oracle Database objects such as tables and views, invoke user-defined Python functions using embedded execution, and use the database machine learning algorithms. Type the following commands and click the **Run** icon. Alternatively, you can press **Shift+Enter** keys to run the paragraph.   
 
@@ -230,9 +238,9 @@ This example assumes that you have a notebook called Py Note notebook created. T
     ```
 
 
-   ![connect py](images/connect-py.png "connect python")
+    ![connect py](images/connect-py.png "connect python")
 
-   In this example, the commands:
+    In this example, the commands:
 
      * `import oml`- Imports the OML4Py module
      * `oml.isconnected()` - Returns the following values:
@@ -242,9 +250,9 @@ This example assumes that you have a notebook called Py Note notebook created. T
 
 4. Once the `oml` module is connected to the Oracle Database, the command returns `TRUE`. On Oracle Autonomous AI Database, if the interpreter bindings are properly specified, this should always return `TRUE` as the database connection is established by the OML Notebook environment automatically. You are now ready to run python commands in your notebook.
 
-   ![connect py true](images/connect-py-true.png "connect py true")
+    ![connect py true](images/connect-py-true.png "connect py true")
 
-   Click the run icon. Alternatively, you can press **Shift+Enter** keys to run the notebook.
+    Click the run icon. Alternatively, you can press **Shift+Enter** keys to run the notebook.
 
 5. Type the following Python code and click the run icon.   
 
@@ -290,19 +298,19 @@ To run a notebook:
 
 2. Type the SQL statement to fetch data from an Oracle Database. For example, type `SELECT * from SH.SALES;` where `SH` is the schema name and `SALES` is the table name as shown in the screenshot.
 
-   ![SH sales](images/sh-sales.png "Sales table in SH schema")
+    ![SH sales](images/sh-sales.png "Sales table in SH schema")
 
-   Click the run icon. Alternatively, you can press **Shift+Enter** keys to run the notebook.
+    Click the run icon. Alternatively, you can press **Shift+Enter** keys to run the notebook.
 
 3. After you run the notebook, it fetches the data in the notebook in the next paragraph, as shown in the screenshot.
 
-   ![sh sales data](images/sh-sales-data.png "Sales data")    
+    ![sh sales data](images/sh-sales-data.png "Sales data")    
 
-   The output section of the paragraph has a charting component that displays the results in graphical output. The chart interface allows you to interact with the output in the notebook paragraph. You have the option to run and edit single a paragraph or all paragraphs in a notebook. In this screenshot, you can see the data from the `SALES` table in a scatter plot.
+    The output section of the paragraph has a charting component that displays the results in graphical output. The chart interface allows you to interact with the output in the notebook paragraph. You have the option to run and edit single a paragraph or all paragraphs in a notebook. In this screenshot, you can see the data from the `SALES` table in a scatter plot.
 
-   ![sh sales scatterplot](images/sh-sales-scatterplot.png "Sales table in a scatter plot")    
+    ![sh sales scatterplot](images/sh-sales-scatterplot.png "Sales table in a scatter plot")    
 
-   You can visualize the data by clicking the respective icons for each graphical representation, as shown here:
+    You can visualize the data by clicking the respective icons for each graphical representation, as shown here:
 
       * ![histogram icon](images/histogram.png "histogram icon")Click the histogram icon to visualize your data in a histogram.
       * ![pie chart icon](images/pie-chart.png "pie chart icon")Click the pie chart icon to visualize your data in a pie chart.
@@ -321,19 +329,19 @@ To call the Markdown interpreter and generate static html from Markdown plain te
 
 2. Type ``"Hello World!"`` and click **Run**. The static html text is generated, as seen in the screenshot below.
 
-	![Markdown tags for plain text](images/md-text.png "Markdown tags for plain text")
+    	![Markdown tags for plain text](images/md-text.png "Markdown tags for plain text")
 
 3. You can format the text in bold and italics. To display the text in bold, write the same text inside the tag **Hello World** and click Run.
 
-	![Markdown tags for bold](images/md-bold.png "Markdown tags for bold")
+    	![Markdown tags for bold](images/md-bold.png "Markdown tags for bold")
 
 4. To display the text in italics, write the same text inside an asterisk pair or underscore pair as shown in the screenshot, and click Run.
 
-	![Markdown tags for italics](images/md-italics.png "Markdown tags for italics")
+    	![Markdown tags for italics](images/md-italics.png "Markdown tags for italics")
 
 5. To display the text in a bulleted list, prefix * (asterisk) to the text, as shown in the screenshot below:
 
-	![Markdown tags for bulleted points](images/md-bullets.png "Markdown tags for bulleted points")
+    	![Markdown tags for bulleted points](images/md-bullets.png "Markdown tags for bulleted points")
 
 6. To display the text in heading1, heading 2 and heading 2, prefix # (hash) to the text and click Run. For H1, H2, and H3, you must prefix 1, 2, and 3 hashes respectively.
 
@@ -348,4 +356,4 @@ You may now **proceed to the next lab.**
 
 * **Author** : Moitreyee Hazarika, Consulting User Assistance Developer, Database User Assistance Development
 * **Contributors**: Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Consulting Member of Tech Staff, Machine Learning
-* **Last Updated By/Date**: Moitreyee Hazarika, October 2025
+* **Last Updated By/Date**: Moitreyee Hazarika, June 2026
