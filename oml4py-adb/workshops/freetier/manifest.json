@@ -71,6 +71,21 @@
             "type": "freetier"
         },
         {
+            "title": "Lab 10: Create, Manage, and Analyze Vector Data",
+            "filename": "../../vector-dtype/vector.md",
+            "type": "freetier"
+        },
+        {
+            "title": "Lab 11: Generate and Use Text Embeddings with Pretrained ONNX Models",
+            "filename": "../../embeddings/embeddings.md",
+            "type": "freetier"
+        },
+        {
+            "title": "Lab 12: Export and Import user-defined Python Scripts",
+            "filename": "../../export-import-udf/export-import-udf.md",
+            "type": "freetier"
+        },
+        {
             "title": "Appendix: OML user administration",
             "filename": "../../appendix-manage/appendix-manage.md",
             "type": "freetier"
